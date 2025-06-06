@@ -44,13 +44,19 @@ ubuntu.vm.network "private_network", ip: "192.168.1.3",
 ### Změny v Configure-zabbix-agent2
 # Nastav systémový hostname
 echo "$SHORT_HOSTNAME" | sudo tee /etc/hostname
+<p>
 sudo hostnamectl set-hostname "$SHORT_HOSTNAME"
+<p>
 if grep -q "^HostMetadata=" /etc/zabbix/zabbix_agent2.conf; then
+<p>
     sudo sed -i "s/^HostMetadata=.*/HostMetadata=SPOS/" /etc/zabbix/zabbix_agent2.conf
+    <p>
 else
+<p>
     echo "HostMetadata=SPOS" | sudo tee -a /etc/zabbix/zabbix_agent2.conf
 
 ### Změny v install-zabbix-agent2
 sudo apt-get install -y net-tools wget gnupg2
+<p>
 wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_7.0-1+ubuntu22.04_all.deb
 
