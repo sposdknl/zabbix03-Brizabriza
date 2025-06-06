@@ -38,11 +38,11 @@ systemctl restart zabbix-agent2
 ```
 ...
 
-### Změny ve Vagrantfile
+# Změny ve Vagrantfile
 ubuntu.vm.network "private_network", ip: "192.168.1.3", 
 
-### Změny v Configure-zabbix-agent2
-# Nastav systémový hostname
+# Změny v Configure-zabbix-agent2
+### Nastav systémový hostname
 echo "$SHORT_HOSTNAME" | sudo tee /etc/hostname
 <p>
 sudo hostnamectl set-hostname "$SHORT_HOSTNAME"
@@ -55,7 +55,7 @@ else
 <p>
     echo "HostMetadata=SPOS" | sudo tee -a /etc/zabbix/zabbix_agent2.conf
 
-### Změny v install-zabbix-agent2
+# Změny v install-zabbix-agent2
 sudo apt-get install -y net-tools wget gnupg2
 <p>
 wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_7.0-1+ubuntu22.04_all.deb
